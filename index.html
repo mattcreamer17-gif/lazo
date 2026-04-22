@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A read on where AI fits in Lazo's stack. And where it doesn't. | For Lazo</title>
+<meta name="description" content="Saw the Lazo AI surface for data room structuring and document Q&amp;A. I have a bet on which piece of that stack is doing too much LLM work and which piece should be a Postgres query with a state machine. Thirty seconds if you want to hear it." />
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="gradient-field" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="brand" href="https://www.lazo.us/" target="_blank" rel="noopener" aria-label="Lazo">
+      <img src="logo.svg" alt="Lazo" width="108" height="37" />
+    </a>
+    <span class="nav-pill">Prepared for booth SS89, eMerge Americas</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        A working note for Juan Manuel Barrero and the Lazo product team
+      </div>
+      <h1>A read on where AI fits in Lazo's stack. <span class="accent">And where it doesn't.</span></h1>
+      <p class="lede">Move fast. Build Global. We wrote this the way Lazo writes.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">Book 30 minutes with Matt</a>
+        <a class="btn btn-ghost" href="#pitch">Read the note</a>
+      </div>
+      <ul class="chip-row" aria-label="Signals you already ship">
+        <li>1,000+ LatAm founders served</li>
+        <li>Lazo AI for data rooms</li>
+        <li>Miami, Medellín, Buenos Aires</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="frame-section" id="pitch">
+    <div class="wrap grid-2">
+      <aside class="side-card">
+        <div class="side-label">The frame</div>
+        <div class="ratio">
+          <div class="ratio-row"><span class="ratio-num">60</span><span class="ratio-label">Traditional code. Bank-feed matching, cap-table math, entity state, form generation.</span></div>
+          <div class="ratio-row"><span class="ratio-num">30</span><span class="ratio-label">Rule-based logic. Categorization trees, jurisdiction-specific tax rules, investor-match heuristics.</span></div>
+          <div class="ratio-row"><span class="ratio-num">10</span><span class="ratio-label">Real model work. Unstructured receipts, novel-vendor inference, contract Q&amp;A where retrieval alone does not close the gap.</span></div>
+        </div>
+        <p class="side-foot">Most teams invert this ratio. The LLM bill scales faster than revenue and accuracy plateaus below the human specialist.</p>
+      </aside>
+
+      <article class="pitch">
+        <h2>The interesting question is not whether AI belongs in the Lazo product. It clearly does.</h2>
+        <p>You are running a US back office for more than a thousand LatAm founders, growing at double digits every month, and shipping AI assistants for data rooms and document Q&amp;A. That is a lot of moving parts, most of which have to be right on a regulated deadline.</p>
+        <p>The interesting question is which parts of the stack should be model work, which parts are rule-based logic, and which parts are boring deterministic code that should never touch a prompt.</p>
+
+        <h3>The Eduba frame</h3>
+        <p>The short version: most AI problems are not AI problems. Our working view is 60/30/10. About sixty percent of the work inside a back-office product like Lazo is traditional code and database work. Thirty percent is rule-based logic. The last ten percent is actual model territory.</p>
+        <p>The work is deciding which piece belongs on which layer before the build, not after.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="proof-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-label">Case we lean on for this conversation</span>
+        <h2>Feeld. A product company with a CTO asking the same question at a different layer of the stack.</h2>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card primary">
+          <div class="card-tag">Scoped sprint</div>
+          <h3>Feeld, with Andrew Santus, CTO</h3>
+          <ul class="check-list">
+            <li>Workshop with product and engineering leads</li>
+            <li>Advisory calls through the engagement</li>
+            <li>Organizational Context Architecture</li>
+            <li>Strategic Operations Framework</li>
+          </ul>
+          <p class="card-foot">The output was a decision framework the CTO could hand to his team. Not a tool bill.</p>
+        </div>
+
+        <div class="proof-card">
+          <div class="card-tag">Fallback if the conversation turns compliance-first</div>
+          <h3>VigilOre. A multi-agent compliance platform for DRC mining operators.</h3>
+          <p class="big-stat"><span>160<small>+</small></span><em>hours of compliance work collapsed to under 5 minutes with a multi-agent setup.</em></p>
+          <p class="card-foot">The same shape as tax, cap-table, and investor data work inside Lazo. Document-heavy, regulated, deadline-driven.</p>
+        </div>
+
+        <div class="proof-card">
+          <div class="card-tag">Enterprise training reference</div>
+          <h3>Correlation One, at Pacific Life and Colgate-Palmolive</h3>
+          <ul class="stat-list">
+            <li><strong>1,500+</strong> people trained since May 2025</li>
+            <li><strong>6,000 to 9,000</strong> hours saved per year</li>
+            <li><strong>95%</strong> still using the tools 30 days after the workshop</li>
+          </ul>
+        </div>
+
+        <div class="proof-card">
+          <div class="card-tag">Executive-level audience</div>
+          <h3>KPMG UK, one of the Big Four</h3>
+          <p>40+ executives trained. Regulated-industry audience, leadership-level. The Lazo team moves in the same cross-border, compliance-aware rooms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paper-section">
+    <div class="wrap grid-2">
+      <div>
+        <span class="section-label">The paper behind the frame</span>
+        <h2>Interpretable Context Methodology</h2>
+        <p>Lazo is building an agent layer over a regulated document corpus. Tax filings, cap tables, contracts, investor data rooms. ICM names the filesystem pattern we use to make agent context auditable, versionable, and reproducible across every customer account.</p>
+        <p>Published in ACM TiiS. Repo public, MIT license.</p>
+        <div class="link-row">
+          <a class="link-chip" href="https://github.com/RinDig/Interpretable-Context-Methodology-ICM-" target="_blank" rel="noopener">github.com/RinDig/Interpretable-Context-Methodology-ICM-</a>
+        </div>
+      </div>
+
+      <div class="paper-aux">
+        <div class="aux-card">
+          <h4>Also on the shelf</h4>
+          <p>The Ethics Engine, a psychometric assessment tool for evaluating ideological and moral patterns in LLMs, with links at <a href="https://arxiv.org/abs/2510.11742" target="_blank" rel="noopener">arxiv.org/abs/2510.11742</a> and <a href="https://github.com/RinDig/AuditEngine" target="_blank" rel="noopener">github.com/RinDig/AuditEngine</a>.</p>
+        </div>
+        <div class="aux-card">
+          <h4>Partner note</h4>
+          <p>Eduba partners with NLP Logix for work that sits below the orchestration layer. NLP Logix has been in machine learning since 2011 and runs over 150 data scientists.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="questions-section">
+    <div class="wrap">
+      <span class="section-label">Five questions we would open with</span>
+      <h2>Bring one workflow inside Lazo that you wish felt cleaner.</h2>
+      <ol class="q-list">
+        <li>When a customer uploads a messy receipt stack, what percentage of the classification actually needs an LLM versus a rules table with vendor embeddings?</li>
+        <li>Who owns the AI architecture at Lazo, and does that person also own the specialist throughput number?</li>
+        <li>What breaks first as you go from 1,000 customers to 3,000: the human specialist bench, the AI latency, or the data room schema?</li>
+        <li>When Series A candidates ask to see your data room structure, are you showing them a product or a services artifact?</li>
+        <li>If you could drop one vendor from your own back office tomorrow, which one, and why is it still there?</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap cta-card">
+      <div class="cta-body">
+        <span class="section-label on-dark">The ask</span>
+        <h2>30 minutes with Matt. A live orchestration audit on the whiteboard.</h2>
+        <p>Matt Creamer runs community and enterprise outreach at Eduba. He will be at booth SS89 at eMerge Americas. Bring one workflow inside Lazo that you wish felt cleaner.</p>
+        <p class="credibility-line">Matt also built an online community to 22,000 members in 5 weeks, which tends to resonate with teams building for founders.</p>
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/thecro-eduba/30min" target="_blank" rel="noopener">Book the 30 minutes</a>
+        <a class="btn btn-ghost-dark" href="mailto:matt@eduba.io">matt@eduba.io</a>
+      </div>
+      <aside class="cta-side">
+        <div class="side-block">
+          <div class="side-k">Who</div>
+          <div class="side-v">Matt Creamer, CRO, Eduba</div>
+        </div>
+        <div class="side-block">
+          <div class="side-k">Where</div>
+          <div class="side-v">eMerge Americas, booth SS89</div>
+        </div>
+        <div class="side-block">
+          <div class="side-k">Shape</div>
+          <div class="side-v">Advisory or workshop. Peer to peer, methodology to methodology.</div>
+        </div>
+        <div class="side-block">
+          <div class="side-k">Scope</div>
+          <div class="side-v">Scoped sprint. Audit-first engagement. Playbook delivery. Methodology transfer.</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-left">
+      <p>Prepared by Eduba, <a href="https://eduba.io" target="_blank" rel="noopener">eduba.io</a>.</p>
+      <p class="muted">This page was built for the Lazo team ahead of eMerge Americas. It is a working note, not a pitch deck.</p>
+    </div>
+    <div class="foot-right">
+      <a href="https://www.lazo.us/" target="_blank" rel="noopener">lazo.us</a>
+      <a href="https://www.linkedin.com/company/lazo-us" target="_blank" rel="noopener">Lazo on LinkedIn</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
